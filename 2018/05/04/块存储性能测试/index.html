@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="ksk Notes">
 <meta property="og:description" content="业务需求块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency 目前业界对于块存储的产品划分情况如下:    产品类型 性能特点 应用场景 主流厂商支持情况     near local &amp;gt;= 本地ssd盘性能 大型OLTP数据库/NoSQL数据库/ELK分布式日志 阿里云ESSD   SSD云盘 20000">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T16:20:57.255Z">
+<meta property="og:updated_time" content="2018-05-04T16:24:02.880Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="块存储性能测试">
 <meta name="twitter:description" content="业务需求块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency 目前业界对于块存储的产品划分情况如下:    产品类型 性能特点 应用场景 主流厂商支持情况     near local &amp;gt;= 本地ssd盘性能 大型OLTP数据库/NoSQL数据库/ELK分布式日志 阿里云ESSD   SSD云盘 20000">
@@ -465,7 +465,7 @@
 <p>（1）purge</p>
 <p>（2）4k的随机写（100%），持续写入达到4倍的磁盘大小或者达到24h或者达到5轮的稳态（满足其一即可）</p>
 <p>（3）iostat统计磁盘读写性能数据，取fio延迟波动方差的数据</p>
-<h3 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h3><h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3>
+<h2 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h2><h2 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h2>
       
     </div>
     
@@ -644,7 +644,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务需求"><span class="nav-number">1.</span> <span class="nav-text">业务需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分层测试框架"><span class="nav-number">2.</span> <span class="nav-text">分层测试框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PTS测试模型"><span class="nav-number">3.</span> <span class="nav-text">PTS测试模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试步骤"><span class="nav-number">3.1.</span> <span class="nav-text">测试步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试项"><span class="nav-number">3.2.</span> <span class="nav-text">测试项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IOPS测试"><span class="nav-number">3.2.1.</span> <span class="nav-text">IOPS测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throughput测试"><span class="nav-number">3.2.2.</span> <span class="nav-text">Throughput测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延迟测试"><span class="nav-number">3.2.3.</span> <span class="nav-text">延迟测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#稳定性测试"><span class="nav-number">3.2.4.</span> <span class="nav-text">稳定性测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试工具"><span class="nav-number">3.3.</span> <span class="nav-text">测试工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果展示"><span class="nav-number">3.4.</span> <span class="nav-text">效果展示</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务需求"><span class="nav-number">1.</span> <span class="nav-text">业务需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分层测试框架"><span class="nav-number">2.</span> <span class="nav-text">分层测试框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PTS测试模型"><span class="nav-number">3.</span> <span class="nav-text">PTS测试模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#测试步骤"><span class="nav-number">3.1.</span> <span class="nav-text">测试步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试项"><span class="nav-number">3.2.</span> <span class="nav-text">测试项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IOPS测试"><span class="nav-number">3.2.1.</span> <span class="nav-text">IOPS测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Throughput测试"><span class="nav-number">3.2.2.</span> <span class="nav-text">Throughput测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延迟测试"><span class="nav-number">3.2.3.</span> <span class="nav-text">延迟测试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#稳定性测试"><span class="nav-number">3.2.4.</span> <span class="nav-text">稳定性测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试工具"><span class="nav-number">4.</span> <span class="nav-text">测试工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果展示"><span class="nav-number">5.</span> <span class="nav-text">效果展示</span></a></li></ol></div>
             
 
           </div>
