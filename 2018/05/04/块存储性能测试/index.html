@@ -78,13 +78,13 @@
 <link href="/kskBlog/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Testing Phase," />
 
 
 
 
 
-  <link rel="alternate" href="/kskBlog/atom.xml" title="烫烫烫烫烫" type="application/atom+xml" />
+  <link rel="alternate" href="/kskBlog/atom.xml" title="ksk Notes" type="application/atom+xml" />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="专注于云计算、分布式存储、测试等领域，如有指教，欢迎邮件讨论 kangkang0014@gmail.com">
-<meta name="keywords" content="世事洞明皆学问，人情练达即文章">
+<meta name="description" content="##1 业务需求## 块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency 目前业界对于块存储的产品划分情况如下:    产品类型 性能特点 应用场景 主流厂商支持情况     near local &amp;gt;= 本地ssd盘性能 大型OLTP数据库/NoSQL数据库/ELK分布式日志 阿里云ESSD   SSD云">
+<meta name="keywords" content="Testing Phase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="块存储性能测试">
 <meta property="og:url" content="https://ksk0014.github.io/kskBlog/2018/05/04/块存储性能测试/index.html">
-<meta property="og:site_name" content="烫烫烫烫烫">
-<meta property="og:description" content="专注于云计算、分布式存储、测试等领域，如有指教，欢迎邮件讨论 kangkang0014@gmail.com">
+<meta property="og:site_name" content="ksk Notes">
+<meta property="og:description" content="##1 业务需求## 块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency 目前业界对于块存储的产品划分情况如下:    产品类型 性能特点 应用场景 主流厂商支持情况     near local &amp;gt;= 本地ssd盘性能 大型OLTP数据库/NoSQL数据库/ELK分布式日志 阿里云ESSD   SSD云">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-04T11:37:02.339Z">
+<meta property="og:updated_time" content="2018-05-04T16:12:27.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="块存储性能测试">
-<meta name="twitter:description" content="专注于云计算、分布式存储、测试等领域，如有指教，欢迎邮件讨论 kangkang0014@gmail.com">
+<meta name="twitter:description" content="##1 业务需求## 块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency 目前业界对于块存储的产品划分情况如下:    产品类型 性能特点 应用场景 主流厂商支持情况     near local &amp;gt;= 本地ssd盘性能 大型OLTP数据库/NoSQL数据库/ELK分布式日志 阿里云ESSD   SSD云">
 
 
 
@@ -142,7 +142,7 @@
 
 
 
-  <title>块存储性能测试 | 烫烫烫烫烫</title>
+  <title>块存储性能测试 | ksk Notes</title>
   
 
 
@@ -178,7 +178,7 @@
     <div class="custom-logo-site-title">
       <a href="/kskBlog/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">烫烫烫烫烫</span>
+        <span class="site-title">ksk Notes</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -284,7 +284,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="烫烫烫烫烫">
+      <meta itemprop="name" content="ksk Notes">
     </span>
 
     
@@ -315,6 +315,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/kskBlog/categories/测试设计/" itemprop="url" rel="index">
+                    <span itemprop="name">测试设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -342,7 +364,116 @@
       
 
       
-        
+        <p>##1 业务需求##</p>
+<p>块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency</p>
+<p>目前业界对于块存储的产品划分情况如下:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">产品类型</th>
+<th style="text-align:left">性能特点</th>
+<th style="text-align:left">应用场景</th>
+<th style="text-align:left">主流厂商支持情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">near local</td>
+<td style="text-align:left">&gt;= 本地ssd盘性能</td>
+<td style="text-align:left">大型OLTP数据库/NoSQL数据库/ELK分布式日志</td>
+<td style="text-align:left">阿里云ESSD</td>
+</tr>
+<tr>
+<td style="text-align:left">SSD云盘</td>
+<td style="text-align:left">20000IOPS左右</td>
+<td style="text-align:left">I/O密集型应用/中型关系数据库/NoSQL数据库</td>
+<td style="text-align:left">主流厂商均支持</td>
+</tr>
+<tr>
+<td style="text-align:left">高效云盘</td>
+<td style="text-align:left">性能够用就好，5000IOPS左右</td>
+<td style="text-align:left">开发与测试业务/小型负载数据库/系统盘</td>
+<td style="text-align:left">主流厂商均支持</td>
+</tr>
+<tr>
+<td style="text-align:left">普通云盘</td>
+<td style="text-align:left">sata介质，吞吐优化型500MBps，冷存储250MBps以下</td>
+<td style="text-align:left">大数据、数据仓库、日志处理</td>
+<td style="text-align:left">aws划分更细致，阿里云已淘汰</td>
+</tr>
+</tbody>
+</table>
+<p>##2 分层测试框架##</p>
+<p>分布式块存储性能测试考量需要覆盖以下的层次:</p>
+<ol>
+<li><p>系统网络性能、物理磁盘性能测试</p>
+</li>
+<li><p>存储核心系统读写性能测试，stress_tool、data_consistency_tool</p>
+</li>
+<li><p>宿主机上云盘性能、以及虚拟机上的云盘性能，PTS测试模型，fio</p>
+</li>
+<li><p>设备上文件系统性能测试，filebench，iozone等等</p>
+</li>
+<li><p>实际应用负载测试，sysbench OLTP、分布式数据分析框架IO负载仿真</p>
+</li>
+<li><p>用户常用操作的易用性</p>
+</li>
+</ol>
+<p>块存储性能测试需要从两个视角看：</p>
+<ul>
+<li>用户维度：针对系统中单一卷实例可以获得稳定且可预期的性能，更多关注上述3 ~ 6的测试层次，本文主要讲解第3个层次的测试设计</li>
+<li>集群维度：针对集群可服务能力的性能评估，保障系统整体稳定可控，更多关注上述1 ~ 2的测试层次</li>
+</ul>
+<p>##3 PTS测试模型##<br><strong>PTS：</strong> Solid State Storage Performance Test Specification<br>SNIA固态存储性能测试标准，相关文档参见 <a href="https://www.snia.org/sites/default/files/technical_work/PTS/SSS_PTS_2.0.1.pdf" target="_blank" rel="noopener">SSS_PTS_2.0.1.pdf</a></p>
+<p>本文测试设计主要参考上述文档，并针对云环境做了相应适配</p>
+<p>###3.1 测试步骤###</p>
+<p>根据 PTS 规范，SSD 性能测试需要经过以下四个步骤：</p>
+<ol>
+<li><p>净化（purge）：通过擦除数据，将 SSD 置于接近 FOB 状态。</p>
+</li>
+<li><p>事先准备工作负载（WIPC）：写入规定的数据到整个 SSD，帮助其达到稳态。</p>
+</li>
+<li><p>正式测试之前的准备工作（WDPC）：循环运行测试，直到 SSD 进入稳态。</p>
+</li>
+<li><p>测试：当 SSD 进入稳态时开始测试。</p>
+</li>
+</ol>
+<p>备注:</p>
+<p><em>FOB:</em> Fresh of Box，新鲜出盒，即硬盘刚买来的状态</p>
+<p><em>稳态:</em> 性能波动范围小于预先设定的阈值</p>
+<p>###3.2 测试项###</p>
+<p>####3.2.1 IOPS测试####<br>测试在不同block size与不同的read/write 比的混合下随机IO的性能</p>
+<p>block size：100/0, 95/5, 65/35, 50/50, 35/65, 5/95, 0/100 </p>
+<p>read/write：1024KiB, 128KiB, 64KiB, 32KiB, 16KiB, 8KiB, 4KiB, 0.5KiB </p>
+<p>磁盘IO的范围：100% volume size</p>
+<p>（1）purge</p>
+<p>（2）WIPC：128k顺序写2倍的磁盘空间</p>
+<p>（3）WDPC：上述工作负载（bs，r/w） loop运行</p>
+<p>（4）稳态判定：取相邻4轮的4kb 随机 0/100的iops，相对均值上下浮动在10%以内，即达到稳态，即取这四轮的测试数据为稳态窗口</p>
+<p>测试数据，取稳态窗口的均值</p>
+<p>####3.2.2 Throughput测试####<br>测试在稳态的128k与1m的顺序读与顺序写的吞吐</p>
+<p>磁盘IO的范围：100% volume size</p>
+<p>（1）purge</p>
+<p>（2）WIPC：128k顺序写或1M的顺序写2倍的磁盘空间</p>
+<p>（3）WDPC：bs(128k,1M)和rw(100/0, 0/100) 顺序IO，loop，记录吞吐量</p>
+<p>（4）稳态判定：取相邻4轮的吞吐，相对均值上下浮动在10%以内，即达到稳态，即取这四轮的测试数据为稳态窗口</p>
+<p>测试数据，取稳态窗口的均值</p>
+<p>####3.2.3 延迟测试####</p>
+<p>测试在3种block sizes（0.5k，4k和8k），与三种读/写 比（100/0，65/35，0/100）混合下IO响应时间</p>
+<p>磁盘IO的范围：100% volume size</p>
+<p>（1）purge</p>
+<p>（2）WIPC：128k顺序写2倍的磁盘空间</p>
+<p>（3）WDPC：bs(0.5k, 4k, 8k)和rw(100/0,  65/35, 0/100) 随机IO，loop，记录最大延迟与平均延迟</p>
+<p>（4）稳态判定：取相邻4轮的平均延迟（0/100，4k），相对均值上下浮动在10%以内，即达到稳态，即取这四轮的测试数据为稳态窗口</p>
+<p>测试数据，取稳态窗口的均值</p>
+<p>####3.2.2 稳定性测试####</p>
+<p>测试SSD性能是随着时间以及写入量的增加是如何变化的（1min的检测穿插着30分钟的WAST测试）</p>
+<p>（1）purge</p>
+<p>（2）4k的随机写（100%），持续写入达到4倍的磁盘大小或者达到24h或者达到5轮的稳态（满足其一即可）</p>
+<p>（3）iostat统计磁盘读写性能数据，取fio延迟波动方差的数据</p>
+<p>###3.3 测试工具###</p>
+<p>###3.4 效果展示###</p>
+
       
     </div>
     
@@ -356,6 +487,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/kskBlog/tags/Testing-Phase/" rel="tag"># Testing Phase</a>
+          
+        </div>
       
 
       
