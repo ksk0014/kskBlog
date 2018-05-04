@@ -5,9 +5,9 @@
   
   <link href="/kskBlog/atom.xml" rel="self"/>
   
-  <link href="https://ksk0014.github.io/"/>
+  <link href="https://ksk0014.github.io/kskBlog/"/>
   <updated>2018-05-04T08:08:40.527Z</updated>
-  <id>https://ksk0014.github.io/</id>
+  <id>https://ksk0014.github.io/kskBlog/</id>
   
   <author>
     <name>Shuaikang Kong</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://ksk0014.github.io/2018/05/04/hello-world/"/>
-    <id>https://ksk0014.github.io/2018/05/04/hello-world/</id>
+    <link href="https://ksk0014.github.io/kskBlog/2018/05/04/hello-world/"/>
+    <id>https://ksk0014.github.io/kskBlog/2018/05/04/hello-world/</id>
     <published>2018-05-04T08:08:40.527Z</published>
     <updated>2018-05-04T08:08:40.527Z</updated>
     
