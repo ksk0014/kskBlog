@@ -98,18 +98,18 @@
 
 
 
-<meta name="description" content="专注于云计算、分布式存储、测试等领域，如有指教，欢迎邮件讨论">
+<meta name="description" content="测试流程代码review  –&amp;gt; UT（L1）–&amp;gt; L2（简单功能测试）–&amp;gt; L3（全量回归测试）–&amp;gt; 异常环境 –&amp;gt; 集成测试 –&amp;gt; 性能测试 –&amp;gt;  自动上线 –&amp;gt; 线上灰度测试 测试流程功能简述代码review：主要是代码规范性检查，coding风格、代码书写合理性（项目高工查），测试人员需要关注log打印是否合理、是否有冗余或缺失、日志级别是">
 <meta name="keywords" content="Testing Framework">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式存储质量保障体系">
 <meta property="og:url" content="https://ksk0014.github.io/kskBlog/2018/05/04/分布式存储质量保障体系/index.html">
 <meta property="og:site_name" content="ksk Notes">
-<meta property="og:description" content="专注于云计算、分布式存储、测试等领域，如有指教，欢迎邮件讨论">
+<meta property="og:description" content="测试流程代码review  –&amp;gt; UT（L1）–&amp;gt; L2（简单功能测试）–&amp;gt; L3（全量回归测试）–&amp;gt; 异常环境 –&amp;gt; 集成测试 –&amp;gt; 性能测试 –&amp;gt;  自动上线 –&amp;gt; 线上灰度测试 测试流程功能简述代码review：主要是代码规范性检查，coding风格、代码书写合理性（项目高工查），测试人员需要关注log打印是否合理、是否有冗余或缺失、日志级别是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-04T14:52:46.951Z">
+<meta property="og:updated_time" content="2018-05-05T05:39:05.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分布式存储质量保障体系">
-<meta name="twitter:description" content="专注于云计算、分布式存储、测试等领域，如有指教，欢迎邮件讨论">
+<meta name="twitter:description" content="测试流程代码review  –&amp;gt; UT（L1）–&amp;gt; L2（简单功能测试）–&amp;gt; L3（全量回归测试）–&amp;gt; 异常环境 –&amp;gt; 集成测试 –&amp;gt; 性能测试 –&amp;gt;  自动上线 –&amp;gt; 线上灰度测试 测试流程功能简述代码review：主要是代码规范性检查，coding风格、代码书写合理性（项目高工查），测试人员需要关注log打印是否合理、是否有冗余或缺失、日志级别是">
 
 
 
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-04T22:52:46+08:00">
-                2018-05-04
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-05T13:39:05+08:00">
+                2018-05-05
               </time>
             
           </span>
@@ -421,7 +421,28 @@
       
 
       
-        
+        <h1 id="测试流程"><a href="#测试流程" class="headerlink" title="测试流程"></a>测试流程</h1><p>代码review  –&gt; UT（L1）–&gt; L2（简单功能测试）–&gt; L3（全量回归测试）–&gt; 异常环境 –&gt; 集成测试 –&gt; 性能测试 –&gt;  自动上线 –&gt; 线上灰度测试</p>
+<h1 id="测试流程功能简述"><a href="#测试流程功能简述" class="headerlink" title="测试流程功能简述"></a>测试流程功能简述</h1><p>代码review：主要是代码规范性检查，coding风格、代码书写合理性（项目高工查），测试人员需要关注log打印是否合理、是否有冗余或缺失、日志级别是否合理</p>
+<ul>
+<li>UT：auto trigger，UT测试代码由研发人员负责编写，测试人员需要维护UT测试环境、推动单测问题解决、推动单测覆盖率提升</li>
+<li>L2：auto trigger，测试用例为全量测试中的一小部分，测试时长在30分钟以内，目的是快速发现CI代码在基本接口功能上面存在的问题，及时推动研发人员解决</li>
+<li>L3：daily build，全量测试，考察代码在复杂场景下、单个异常下运行情况，测试时间应当在12h以内，测试问题第二天及时反馈RD解决，问题绝不过夜</li>
+<li>failover：hand trigger，全量回归三轮无异常，版本拉分支进入异常环境，多种异常混合、持续压力、异常预案演练、集群服务能力评估，运行三天无问题，产出测试报告</li>
+<li>集成测试：hand trigger upgrade，failover环境三天无问题，版本进入集成环境，版本兼容性测试、上下游模块对接测试，观察三天</li>
+<li>性能测试：hand trigger，集成环境三天无异常，开始集群性能测试，观察版本间性能是否存在回退，如存在推动定位调优，产出性能测试报告</li>
+<li>自动上线：hand trigger，借助变更平台上线</li>
+<li>线上灰度测试：版本上线时触发，代码相对简单，测试需要关注的是平台维护、报警信息补全完善</li>
+</ul>
+<h1 id="新patch测试须知"><a href="#新patch测试须知" class="headerlink" title="新patch测试须知"></a>新patch测试须知</h1><ol>
+<li>功能设计阶段：参与设计讨论</li>
+<li>功能开发阶段：与研发功能确认接口，开发对应测试用例，编写测试方案设计文档</li>
+<li>功能提测阶段：review功能实现逻辑，最好能看懂业务逻辑层面的代码，调通新增测试用例，加入回归测试</li>
+<li>功能验收阶段：稳定回归3轮，有问题及时推动解决，问题绝不过夜，及时更新测试进度记录文档</li>
+<li>分支测试阶段：功能验收通过，推入failover环境，有问题及时推动解决，产出测试报告</li>
+<li>集成环境观察阶段：上线集成环境，观察兼容性、联调上下游环境、性能回退，产出测试报告</li>
+<li>最后上线阶段：冒烟测试</li>
+</ol>
+
       
     </div>
     
@@ -533,8 +554,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/kskBlog/images/avatar.jpg"
@@ -641,6 +671,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#测试流程"><span class="nav-number">1.</span> <span class="nav-text">测试流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#测试流程功能简述"><span class="nav-number">2.</span> <span class="nav-text">测试流程功能简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#新patch测试须知"><span class="nav-number">3.</span> <span class="nav-text">新patch测试须知</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

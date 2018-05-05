@@ -107,7 +107,7 @@
 <meta property="og:description" content="业务需求块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency 目前业界对于块存储的产品划分情况如下:    产品类型 性能特点 应用场景 主流厂商支持情况     near local &amp;gt;= 本地ssd盘性能 大型OLTP数据库/NoSQL数据库/ELK分布式日志 阿里云ESSD   SSD云盘 20000">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ksk0014.github.io/kskBlog/2018/05/04/块存储性能测试/perf_tool_result.jpeg">
-<meta property="og:updated_time" content="2018-05-05T05:02:16.143Z">
+<meta property="og:updated_time" content="2018-05-05T05:40:59.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="块存储性能测试">
 <meta name="twitter:description" content="业务需求块存储服务推出后，需要针对各种产品宣称性能做基准性能评估。存储领域中性能评估指标主要分为三类IOPS、throughput、latency 目前业界对于块存储的产品划分情况如下:    产品类型 性能特点 应用场景 主流厂商支持情况     near local &amp;gt;= 本地ssd盘性能 大型OLTP数据库/NoSQL数据库/ELK分布式日志 阿里云ESSD   SSD云盘 20000">
@@ -367,7 +367,7 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-05T13:02:16+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-05-05T13:40:59+08:00">
                 2018-05-05
               </time>
             
@@ -463,18 +463,12 @@
 </table>
 <h2 id="分层测试框架"><a href="#分层测试框架" class="headerlink" title="分层测试框架"></a>分层测试框架</h2><p>分布式块存储性能测试考量需要覆盖以下的层次:</p>
 <ol>
-<li><p>系统网络性能、物理磁盘性能测试</p>
-</li>
-<li><p>存储核心系统读写性能测试，stress_tool、data_consistency_tool</p>
-</li>
-<li><p>宿主机上云盘性能、以及虚拟机上的云盘性能，PTS测试模型，fio</p>
-</li>
-<li><p>设备上文件系统性能测试，filebench，iozone等等</p>
-</li>
-<li><p>实际应用负载测试，sysbench OLTP、分布式数据分析框架IO负载仿真</p>
-</li>
-<li><p>用户常用操作的易用性</p>
-</li>
+<li>系统网络性能、物理磁盘性能测试</li>
+<li>存储核心系统读写性能测试，stress_tool、data_consistency_tool</li>
+<li>宿主机上云盘性能、以及虚拟机上的云盘性能，PTS测试模型，fio</li>
+<li>设备上文件系统性能测试，filebench，iozone等等</li>
+<li>实际应用负载测试，sysbench OLTP、分布式数据分析框架IO负载仿真</li>
+<li>用户常用操作的易用性</li>
 </ol>
 <p>块存储性能测试需要从两个视角看：</p>
 <ul>
@@ -485,14 +479,10 @@
 <p>本文测试设计主要参考上述文档，并针对云环境做了相应适配</p>
 <h3 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h3><p>根据 PTS 规范，SSD 性能测试需要经过以下四个步骤：</p>
 <ol>
-<li><p>净化（purge）：通过擦除数据，将 SSD 置于接近 FOB 状态。</p>
-</li>
-<li><p>事先准备工作负载（WIPC）：写入规定的数据到整个 SSD，帮助其达到稳态。</p>
-</li>
-<li><p>正式测试之前的准备工作（WDPC）：循环运行测试，直到 SSD 进入稳态。</p>
-</li>
-<li><p>测试：当 SSD 进入稳态时开始测试。</p>
-</li>
+<li>净化（purge）：通过擦除数据，将 SSD 置于接近 FOB 状态。</li>
+<li>事先准备工作负载（WIPC）：写入规定的数据到整个 SSD，帮助其达到稳态。</li>
+<li>正式测试之前的准备工作（WDPC）：循环运行测试，直到 SSD 进入稳态。</li>
+<li>测试：当 SSD 进入稳态时开始测试。</li>
 </ol>
 <p>备注:</p>
 <p><em>FOB:</em> Fresh of Box，新鲜出盒，即硬盘刚买来的状态</p>
